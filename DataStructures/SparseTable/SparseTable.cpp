@@ -1,19 +1,14 @@
+/**
+ * Sparse table. Solves static RMQ problem (without element changes).
+ * O(NlogN) on precomputation, O(1) on minimum query.
+ *
+ * Based on the problem RMQSQ from SPOJ.com:
+ * https://www.spoj.com/problems/RMQSQ/
+ */
+
 #include <iostream>
-#include <fstream>
-#include <cmath>
-#include <algorithm>
-#include <vector>
-#include <set>
-#include <map>
-#include <stack>
-#include <queue>
 #include <cstdlib>
 #include <cstdio>
-#include <string>
-#include <cstring>
-#include <cassert>
-#include <utility>
-#include <iomanip>
 
 using namespace std;
 
@@ -26,7 +21,7 @@ int a[MAXN];
 int table[MAXLOG][MAXN];
 int logs[MAXN];
 
-void buildLogs() {
+void computeLogs() {
   for (int i = 2; i <= n; i++) {
     logs[i] = logs[i / 2] + 1;
   }
@@ -46,21 +41,18 @@ void buildSparseTable() {
 }
 
 int getMin(int l, int r) {
-  int lg = logs[r - l + 1];
-  int lgLen = 1 << lg;
-  return min(table[lg][l], table[lg][r - lgLen + 1]);
+  int p = logs[r - l + 1];
+  int pLen = 1 << p;
+  return min(table[p][l], table[p][r - pLen + 1]);
 }
 
 int main() {
-  //assert(freopen("input.txt","r",stdin));
-  //assert(freopen("output.txt","w",stdout));
-
   scanf("%d", &n);
   for (int i = 0; i < n; i++) {
     scanf("%d", &a[i]);
   }
 
-  buildLogs();
+  computeLogs();
   buildSparseTable();
 
   int qn;
