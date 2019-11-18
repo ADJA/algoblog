@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# solution.cpp  is a solution you want to stress test
-# stupid.cpp    is a stupid but correct solution
-# gen.cpp       generates a new random test for the problem
+# solution.cpp  solution you want to stress test
+# stupid.cpp    stupid solution for the problem
+# gen.cpp       generates a new random test case for the problem
 
 # compile all programs first
 g++ solution.cpp -o solution
@@ -13,9 +13,9 @@ while true
 do
   # generate a new test case in the file named "in"
   ./gen > in
-  # output the solution output to the "out" file
+  # redirect the solution output to the "out" file
   ./solution < in > out
-  # output the stupid solution output to the "out-stupid" file
+  # redirect the stupid solution output to the "out-stupid" file
   ./stupid < in > out-stupid
 
   # compare both outputs.

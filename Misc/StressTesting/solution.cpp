@@ -1,9 +1,6 @@
 /**
- * Sparse table. Solves static RMQ problem (without element changes).
- * O(NlogN) on precomputation, O(1) on minimum query.
- *
- * Based on the problem RMQSQ from SPOJ.com:
- * https://www.spoj.com/problems/RMQSQ/
+ * Buggy O(sqrt(n)) solution for the problem 
+ * of checking whether n is a prime number.
  */
 
 #include <iostream>

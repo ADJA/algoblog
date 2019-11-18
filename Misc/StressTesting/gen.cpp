@@ -1,6 +1,5 @@
 /**
- * Test generator for the problem RMQSQ from SPOJ.com:
- * https://www.spoj.com/problems/RMQSQ/
+ * Test generator producing an integer n between 2 and 1000.
  */
 
 #include <iostream>
