@@ -9,10 +9,10 @@ g++ solution.cpp -o solution
 g++ stupid.cpp -o stupid
 g++ gen.cpp -o gen
 
-while true
-do
+for ((i = 1; ;i++)) do
   # generate a new test case in the file named "in"
-  ./gen > in
+  # note that we pass i as a random seed to the generator
+  ./gen $i > in
   # redirect the solution output to the "out" file
   ./solution < in > out
   # redirect the stupid solution output to the "out-stupid" file
