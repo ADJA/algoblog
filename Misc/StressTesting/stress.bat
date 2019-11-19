@@ -12,8 +12,7 @@ set i=0
   stupid.exe < in > out-stupid
 
   fc out out-stupid
-  if errorlevel 1 
-    goto fail
+  if errorlevel 1 goto fail
 
   echo OK
   set /a i=%i%+1
